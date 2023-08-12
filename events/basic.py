@@ -33,10 +33,10 @@ Hello! 您好 歡迎您成為 Heppinn 的好友!
     
 def push_msg(event,msg):
     try:
-        user_id = event.source.user_ud
+        user_id = event.sourece.user_id
         line_bot_api.push_message(user_id,TextSendMessage(text=msg))
     except:
-        room_id = event.source.room_id
+        room_id =event.source.room_id
         line_bot_api.push_message(room_id,TextSendMessage(text=msg))
 
 def Usage(event):
