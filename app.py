@@ -41,7 +41,26 @@ def handle_message(event):
 
 
 
+@handler.add(FollowEvent)
+def handle_follow(event):
+    welcome_msg = """Hallo! 您好,歡迎再次成為 Heppinn 的好友~
 
+我是超級幫手 Heppinn
+
+-這裡有股票跟匯率的資訊
+-直接點選下方【圖中】選單功能
+
+-期待你的光臨！！ """
+
+    line_bot_api.reply_message(
+        event.reply_token,
+        TextSendMessage(text=welcome_msg))
+    
+
+@handler.add(UnfollowEvent)
+def handle_unfollow(event):
+    print(event)
+    
 
 if __name__ == "__main__":
     app.run()
